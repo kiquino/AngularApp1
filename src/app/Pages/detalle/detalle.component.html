@@ -1,0 +1,57 @@
+<div class="contenedor-paginadetalle">
+  <h4 class="backbutton" routerLink="/">←Volver</h4>
+  <div class="contenedor-detalle">
+    <div class="imagen">
+      <img src="{{pokemonData.sprites.front_default}}" alt="imagen detalle">
+    </div>
+    <div class="data">
+      <div class="titulo">
+        <h2>{{pokemonData.name | capitalizar}}</h2>
+        <div *ngFor="let descripcion of pokemonCharacteristics.descriptions">
+          <i *ngIf="descripcion.language.name == 'es'">{{descripcion.description}}</i>
+        </div>
+      </div>
+      <div class="info">
+        <div class="item">
+          <h3>Especie:</h3>
+          <p>{{pokemonData.species.name}}</p>
+        </div>
+        <div class="item">
+          <h3>Peso:</h3>
+          <p>{{pokemonData.weight}} kg</p>
+        </div>
+        <div class="item">
+          <h3>Altura:</h3>
+          <p>{{pokemonData.height}} Ft</p>
+        </div>
+        <div class="item">
+          <h3>Tipo:</h3>
+          <p *ngFor="let tipo of pokemonData.types">
+            {{tipo.type.name | capitalizar}}
+          </p>
+        </div>
+        <div class="item ">
+          <h3>Ataques:</h3>
+          <div class=" ataques">
+            <p *ngFor="let ataque of pokemonData.moves">
+              {{ataque.move.name | capitalizar}}
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contenedor-extra">
+    <h2>Más Pokemones</h2>
+    <div class="list-extra">
+      <div *ngFor="let ep of MorePokemon" (click)="reloadPage(ep.id)">
+        <p> {{ep.name | capitalizar}}
+        </p>
+        <img src="{{ep.sprites.front_default}}" alt="">
+
+      </div>
+    </div>
+
+  </div>
+</div>

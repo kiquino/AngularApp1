@@ -1,0 +1,23 @@
+<h3>{{titulo}}</h3>
+<form [formGroup]="formularioRegistro" (ngSubmit)="Registro()">
+  <label
+    [ngClass]="{error:formularioRegistro.get('nombre')?.dirty && formularioRegistro.get('nombre')?.errors, success:formularioRegistro.get('nombre')?.valid}">
+    Nombre<input type="text" formControlName="nombre" />
+    <p *ngIf="formularioRegistro.get('nombre')?.hasError('minlength')"> Debe conteneder al menos 3 caracteres</p>
+  </label>
+  <label
+    [ngClass]="{error:formularioRegistro.get('apellido')?.dirty && formularioRegistro.get('apellido')?.errors, success:formularioRegistro.get('apellido')?.valid}">
+    Apellido<input type="text" formControlName="apellido" />
+    <p *ngIf="formularioRegistro.get('nombre')?.hasError('minlength')"> Debe conteneder al menos 3 caracteres</p>
+  </label>
+  <label
+    [ngClass]="{error:formularioRegistro.get('email')?.dirty && formularioRegistro.get('email')?.errors, success:formularioRegistro.get('email')?.valid}">
+    Email<input type="email" formControlName="email" />
+    <p *ngIf="formularioRegistro.get('email')?.dirty && formularioRegistro.get('email')?.errors"> El correo no es válido
+    </p>
+  </label>
+  <label>Password <input type="password" formControlName="contraseña" />
+    <p *ngIf="formularioRegistro.get('contraseña')?.hasError('minlength')">Debe contener minimo 6 caracteres</p>
+  </label>
+  <button type="submit">Enviar</button>
+</form>

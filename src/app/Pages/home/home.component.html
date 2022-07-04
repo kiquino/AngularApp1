@@ -1,0 +1,14 @@
+<div class="contenedor-pokemons">
+  <div routerLink="/pokemon/{{pokemon.id}}" *ngFor="let pokemon of PokemonsData ">
+
+    <div class="contenedor-pokemon">
+      <h2> {{pokemon.name | capitalizar}}</h2><br />
+
+      <img src="{{pokemon.sprites.front_default}}" />
+      <div class="types">
+        <p *ngFor="let pokemonType of pokemon.types">{{pokemonType.type.name}}</p>
+      </div>
+
+    </div>
+  </div>
+</div>

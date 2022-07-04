@@ -1,0 +1,27 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: max-content;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #6dc9ff;
+}
+form>label{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    justify-content: flex-start;
+}
+form>label>input{
+    width: 350px;
+}
+
+form>label.error>input{
+    border: 3px solid red;
+}
+form>label.success>input{
+    border: 3px solid green;
+}

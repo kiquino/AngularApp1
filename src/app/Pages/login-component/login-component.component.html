@@ -1,0 +1,12 @@
+<h3>{{titulo}}</h3>
+<form [formGroup]="formulario" (ngSubmit)="Ingreso()">
+  <label
+    [ngClass]="{error:formulario.get('email')?.dirty && formulario.get('email')?.errors, success:formulario.get('email')?.valid}">
+    Email<input type="email" formControlName="email" />
+    <p *ngIf="formulario.get('email')?.dirty && formulario.get('email')?.errors"> El correo no es válido</p>
+  </label>
+  <label>Password <input type="password" formControlName="password" />
+    <p *ngIf="formulario.get('password')?.hasError('minlength')">Debe contener minimo 6 caracteres</p>
+  </label>
+  <button type="submit">Enviar</button>
+</form>
